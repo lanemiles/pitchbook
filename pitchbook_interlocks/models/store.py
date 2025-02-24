@@ -1,4 +1,9 @@
-class Store[T]:
+from typing import TypeVar, Generic
+
+T = TypeVar("T")
+
+
+class Store(Generic[T]):
     def __init__(self):
         self._store: dict[str, T] = {}
 
