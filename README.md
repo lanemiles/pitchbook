@@ -1,24 +1,12 @@
 # Anticompetitive Directors README
 
-[**I. Summary	1**](#i.-summary)
+- [Summary](#i-summary)
+- [Downloading & Running the Code](#ii-downloading--running-the-code)
+- [Using the Included Anonymized Input Data](#iii-using-the-included-anonymized-input-data)
+- [Brief Code Overview](#iv-brief-code-overview)
+- [Creating Your Own Input Data](#v-creating-your-own-input-data)
 
-[**II. Downloading & Running the Code	1**](#ii.-downloading-&-running-the-code)
-
-[**III. Using the Included Anonymized Input Data	2**](#iii.-using-the-included-anonymized-input-data)
-
-[**IV. Brief Code Overview	3**](#iv.-brief-code-overview)
-
-[Step One: Building the Universe	3](#step-one:-building-the-universe)
-
-[Step Two: Printing the Results	4](#step-two:-printing-the-results)
-
-[**V. Creating Your Own Input Data	4**](#v.-creating-your-own-input-data)
-
-[CSV File Schemas	5](#csv-file-schemas)
-
-[Notes on Creating Your Own Input Data	7](#notes-on-creating-your-own-input-data)
-
-## **I. Summary** {#i.-summary}
+## I. Summary
 
 This document explains how to download and install our code, provides an overview of how it works, and shows how to use the included anonymized input data as well create custom input data.
 
@@ -28,7 +16,7 @@ We are unable to provide the actual input data purchased from Pitchbook as it is
 
 **Output Data →** The output of the code is a CSV file, **results.csv**, containing statistics and tables about interlocks in the provided input data. We used that file as our data reference while writing the paper.
 
-## **II. Downloading & Running the Code** {#ii.-downloading-&-running-the-code}
+## II. Downloading & Running the Code
 
 The codebase is hosted on Github [here](https://github.com/lanemiles/pitchbook_interlocks). You can download a ZIP file of the code from [here](https://github.com/lanemiles/pitchbook_interlocks/archive/refs/heads/main.zip), or you can clone the repository using git. The codebase is entirely written in Python. Once the code is on your computer, open a Terminal window, *cd* into the root of the project, create and load a new virtual environment, and then all needed dependencies.
 
@@ -42,7 +30,7 @@ The code will always look in the *input\_data* folder for the input CSVs. As dis
 
 Note: If one or more of the needed CSVs is missing from the input\_data folder, the code will fail and report which files are missing. 
 
-## **III. Using the Included Anonymized Input Data** {#iii.-using-the-included-anonymized-input-data}
+## III. Using the Included Anonymized Input Data
 
 Note: The anonymized input data may not be shared. Please reach out if you have any questions about this data.
 
@@ -82,11 +70,11 @@ Some notes on the anonymization:
   * CRITICAL NOTE: The anonymization process keeps dates in their same relative order, but does not necessarily keep the amount of time between two dates constant. As such, if two dates were separated by 10 days before, they could be separated by 2 or 200 days now.   
     * This has one impact on validating the results → The paper cites that the median number of days between an investor’s employee joining the board of a company and the firm investing in that company is 183 days. However, that value is not possible to validate given the anonymous data. Please reach out if this is a significant concern.
 
-## **IV. Brief Code Overview** {#iv.-brief-code-overview}
+## IV. Brief Code Overview
 
 The code operates in two steps. In the “build universe” step, we load the input CSVs, do some data processing, and compute the individual and investor interlocks. In the “print results” step, we print all of our data and statistics to the output CSV.
 
-### Step One: Building the Universe {#step-one:-building-the-universe}
+### Step One: Building the Universe
 
 From the Pitchbook CSVs, we construct the following data entities, with the shown properties and relationships.  
 ![][image1]  
@@ -102,7 +90,7 @@ Next, we identify all individual and investor interlocks. Interlock objects have
 | Person 2 ID | String |
 | Company 2 ID | String |
 
-### Step Two: Printing the Results {#step-two:-printing-the-results}
+### Step Two: Printing the Results
 
 After the universe is built and interlocks are identified, we print out a large amount of data in a CSV file. There are 7 distinct sections in the output CSV. The first section (Paper Tables) contains data for the tables we use in the paper. The following 6 sections contain data that is cited in the paper (e.g. in sentences, not data tables) and additional information for debugging purposes.
 
@@ -116,13 +104,13 @@ After the universe is built and interlocks are identified, we print out a large 
 | Appendix Tables | Contains the information necessary to construct the table in Appendix A (industry sub-sector analysis). |
 | Interlock Dump Tables | Contains one detailed row for each identified interlock. |
 
-## **V. Creating Your Own Input Data** {#v.-creating-your-own-input-data}
+## V. Creating Your Own Input Data
 
 If you would like to create your own version of input data, you are able to do so. For reference, the name and schema of each of the required CSVs is listed below. Note: For several of the less obvious Pitchbook defined fields, the Column Name entry has a link to a PDF of the Pitchbook Help Center article that describes the field, how it is calculated, and its possible values.
 
 Note: This is quite involved and easy to mess up. If you are serious about going down this path, do not hesitate to reach out for support.
 
-### CSV File Schemas {#csv-file-schemas}
+### CSV File Schemas
 
 #### 1\. Company.csv
 
@@ -201,7 +189,7 @@ Note: This is quite involved and easy to mess up. If you are serious about going
 | StartDate | String | No | 01/01/2015 |
 | EndDate | String | No | 01/01/2020 |
 
-### Notes on Creating Your Own Input Data {#notes-on-creating-your-own-input-data}
+### Notes on Creating Your Own Input Data
 
 Some things to keep in mind if you try to create your own test data:
 
