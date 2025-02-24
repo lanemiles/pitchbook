@@ -18,7 +18,7 @@ We are unable to provide the actual input data purchased from Pitchbook as it is
 
 ## II. Downloading & Running the Code
 
-The codebase is hosted on Github [here](https://github.com/lanemiles/pitchbook_interlocks). You can download a ZIP file of the code from [here](https://github.com/lanemiles/pitchbook_interlocks/archive/refs/heads/main.zip), or you can clone the repository using git. The codebase is entirely written in Python. Once the code is on your computer, open a Terminal window, *cd* into the root of the project, create and load a new virtual environment, and then all needed dependencies.
+The codebase is hosted on Github [here](https://github.com/lanemiles/pitchbook_interlocks). You can download a ZIP file of the code from [here](https://github.com/lanemiles/pitchbook_interlocks/archive/refs/heads/main.zip), or you can clone the repository using git. The codebase is entirely written in Python. Once the code is on your computer, open a Terminal window, *cd* into the root of the project, create and load a new virtual environment, and then install all needed dependencies.
 
 ```zsh
 # 1. Download the code (or do so manually)
