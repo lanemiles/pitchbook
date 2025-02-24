@@ -20,13 +20,26 @@ We are unable to provide the actual input data purchased from Pitchbook as it is
 
 The codebase is hosted on Github [here](https://github.com/lanemiles/pitchbook_interlocks). You can download a ZIP file of the code from [here](https://github.com/lanemiles/pitchbook_interlocks/archive/refs/heads/main.zip), or you can clone the repository using git. The codebase is entirely written in Python. Once the code is on your computer, open a Terminal window, *cd* into the root of the project, create and load a new virtual environment, and then all needed dependencies.
 
-| \# 1\. Download the code (or do so manually)git clone https://github.com/lanemiles/pitchbook\_interlocks.git\# 2\. Then, setup the projectcd pitchbook\_interlockspython3 \-m venv ./venvsource venv/bin/activatepip install \-r requirements.txt\# 3\. Next, validate the installpython \-m pitchbook\_interlocks.main \--validate |
-| :---- |
+```zsh
+# 1. Download the code (or do so manually)
+git clone https://github.com/lanemiles/pitchbook_interlocks.git
+
+# 2. Then, setup the project
+cd pitchbook_interlocks
+python3 -m venv ./venv
+source venv/bin/activate pip
+install -r requirements.txt
+
+# 3. Next, validate the install
+python -m pitchbook_interlocks.main --validate
+```
 
 The code will always look in the *input\_data* folder for the input CSVs. As discussed more below, you can either use the anonymized input data files that are provided, or you can attempt to create your own versions of the CSVs.  To kick off the actual analysis (which will write to **results.csv**), run:
 
-| \# Run the analysis. Loads input data from the input\_data folder. Errors if data is missing.python \-m pitchbook\_interlocks.main |
-| :---- |
+```zsh
+# Run the analysis. Loads input data from the input_data folder. Errors if data is missing.
+python -m pitchbook_interlocks.main
+```
 
 Note: If one or more of the needed CSVs is missing from the input\_data folder, the code will fail and report which files are missing. 
 
@@ -38,15 +51,19 @@ Because the Pitchbook input data is proprietary and cannot be shared, we also pr
 
 To install and setup the anonymized input data, run:
 
-| \# 4\. Install and setup anonymized input datapython \-m pitchbook\_interlocks.main \--setup-anonymized-input-data |
-| :---- |
+```zsh
+# 4. Install and setup anonymized input data
+python -m pitchbook_interlocks.main --setup-anonymized-input-data
+```
 
-The anonymized dataset can be downloaded from [here](https://drive.google.com/file/d/1_brAIQP5gJ08xNMuUl3mhiYJwEk3Fjlo/view?usp=drive_link), if needed. If you download the data manually, you must first copy the provided CSVs into the *input\_data* folder. 
+The anonymized dataset can be downloaded from [here](https://drive.google.com/file/d/1_brAIQP5gJ08xNMuUl3mhiYJwEk3Fjlo/view?usp=drive_link), if needed. If you download the data manually, you must first copy the provided CSVs into the *input_data* folder. 
 
-After setting up the test data, run *python \-m pitchbook\_interlocks.main* (the command shown above). 
+After setting up the test data, run *python -m pitchbook_interlocks.main* (the command shown above). 
 
-| \# 5\. After setting up the test data, run the analysispython \-m pitchbook\_interlocks.main |
-| :---- |
+```zsh
+# 5. After setting up the test data, run the analysis
+python -m pitchbook_interlocks.main
+```
 
 The output will be printed in **results.csv**. We suggest opening that file in Excel or Google Sheets. See Section IV for more details about what is contained in that output CSV.
 
