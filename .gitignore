@@ -1,0 +1,55 @@
+input_data/*.csv
+results.csv
+
+# Byte-compiled / cached files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+venv2/
+.venv2/
+env/
+.env/
+Pipfile.lock
+poetry.lock
+
+# Dependency logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Distribution / build files
+build/
+dist/
+*.egg-info/
+*.egg
+MANIFEST
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.sublime-workspace
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs and databases
+*.log
+*.sqlite3
+
+# pytest cache
+.pytest_cache/
+
+# MyPy cache
+.mypy_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+*.cover
