@@ -27,8 +27,8 @@ git clone https://github.com/lanemiles/pitchbook_interlocks.git
 # 2. Then, setup the project
 cd pitchbook_interlocks
 python3 -m venv ./venv
-source venv/bin/activate pip
-install -r requirements.txt
+source venv/bin/activate
+pip install -r requirements.txt
 
 # 3. Next, validate the install
 python -m pitchbook_interlocks.main --validate
