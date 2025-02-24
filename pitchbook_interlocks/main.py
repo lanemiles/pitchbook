@@ -22,6 +22,12 @@ def main():
         return
 
     universe = Universe(verbose_mode=args.verbose)
+    if not universe.input_data_exists():
+        print(
+            "Missing one or more input data files. Please check the input_data directory."
+        )
+        return
+
     build_universe(universe)
 
     with open(universe.output_file, "w") as f:

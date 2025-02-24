@@ -1,4 +1,3 @@
-import pickle
 import os
 from pitchbook_interlocks.models.data_models import (
     Company,
@@ -12,6 +11,16 @@ class Universe:
     DEFAULT_NAME: str = "Universe"
     INPUT_DATA_DIR: str = "input_data"
     OUTPUT_CSV: str = "results.csv"
+    REQUIRED_FILES: list[str] = [
+        "Company.csv",
+        "Investor.csv",
+        "Person.csv",
+        "PersonPositionRelation.csv",
+        "PersonBoardSeatRelation.csv",
+        "PersonAdvisoryRelation.csv",
+        "CompanyCompetitorRelation.csv",
+        "CompanyInvestorRelation.csv",
+    ]
 
     def __init__(self, verbose_mode: bool = False) -> None:
         self.name: str = self.DEFAULT_NAME
@@ -22,16 +31,19 @@ class Universe:
         self.person_store: Store[Person] = Store()
         self.verbose_mode: bool = verbose_mode
 
+    def input_data_exists(self) -> bool:
+        missing = []
+        for filename in self.REQUIRED_FILES:
+            file_path = os.path.join(os.getcwd(), self.input_data_dir, filename)
+            if not os.path.isfile(file_path):
+                missing.append(filename)
+
+        if missing:
+            for file in missing:
+                print(f"Missing file in input_data: {file}")
+            return False
+
+        return True
+
     def get_pb_csv_path(self, table_name: str) -> str:
         return f"{os.getcwd()}/{self.input_data_dir}/{table_name}"
-
-    # def save(self) -> None:
-    #     """Serialize this Universe instance to a file."""
-    #     with open(f"{self.name}.pkl", "wb") as f:
-    #         pickle.dump(self, f)
-
-    # @classmethod
-    # def load(cls, filename: str) -> "Universe":
-    #     """Load a Universe instance from a file."""
-    #     with open(filename, "rb") as f:
-    #         return pickle.load(f)
