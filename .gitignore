@@ -1,4 +1,4 @@
-input_data/*.csv
+input_data/*
 results.csv
 
 # Byte-compiled / cached files
